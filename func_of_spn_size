@@ -1,0 +1,6 @@
+def size_(file):
+    path = file["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"][
+        "boundedBy"]["Envelope"]
+    delta_low = [float(i) for i in path["lowerCorner"].split()]
+    delta_upp = [float(i) for i in path["upperCorner"].split()]
+    return delta_upp[0] - delta_low[0], delta_upp[1] - delta_low[1]
